@@ -18,12 +18,17 @@ const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  // added , { useNewUrlParser: true } for DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version.
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
 // Passport middleware
 app.use(passport.initialize());
+
+// Gets rid of below deprecated error
+// DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated
+mongoose.set("useFindAndModify", false);
 
 //Passport Config
 require("./config/passport")(passport);
