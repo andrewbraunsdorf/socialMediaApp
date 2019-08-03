@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
+// Load Validation
+const validateProfileInput = require("../../validation/profile");
+
 // Load Profile Model
 const Profile = require("../../models/Profile");
 // Load User Profile
@@ -29,6 +32,8 @@ router.get(
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
+      // want to get the name and avatar to show up in the profile
+      .populate("user", ["name", "avatar"])
       .then(profile => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -50,13 +55,20 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    // Get fields
-    // create an empty object which will be filled by things in the form
-    // some dont come from the user
+    const { errors, isValid } = validateProfileInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    // Get Fields
     const profileFields = {};
     // req.user.id is the logged in user, include avatar name and email
     profileFields.user = req.user.id;
     // check to see if the field has come in
+
     // checking if req.body.handle was sent in from the form, if so we are setting it to profileFields.handle
     if (req.body.handle) profileFields.handle = req.body.handle;
     if (req.body.company) profileFields.company = req.body.company;
@@ -68,7 +80,7 @@ router.post(
       profileFields.githubusername = req.body.githubusername;
     // Skills - Split into array
     // coming in as csv... will give us an array
-    if (typeof req.boody.skills !== "undefined") {
+    if (typeof req.body.skills !== "undefined") {
       profileFields.skills = req.body.skills.split(",");
     }
 
