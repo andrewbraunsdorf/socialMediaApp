@@ -1,6 +1,7 @@
 //  have values of state but have to assign change events to add text
 import React, { Component } from 'react';
 import axios from 'axios';
+import classnames from 'classnames';
 
 class Register extends Component {
   constructor() {
@@ -33,11 +34,12 @@ class Register extends Component {
       password2: this.state.password2
     }
 
+    // will remove axios, implement redux and would be implemented through redux, and set up error handling what will change is where we make the request
     // This gives a promise so we want to use .then
     axios.post('/api/users/register', newUser)
       .then(res => console.log(res.data))
       // .response.data will give you the data that you send back
-      .catch(err => console.log(err.response.data))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   render() {
