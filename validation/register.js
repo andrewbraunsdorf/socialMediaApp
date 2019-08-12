@@ -22,20 +22,20 @@ module.exports = function validateRegisterInput(data) {
   }
   // want valid email as well... it has to be if not valid email
   if (!Validator.isEmail(data.email)) {
-    errors.email = "Email is invalid";
+    errors.email = "Email is invalid.";
   }
   // check to see if password is there
   if (Validator.isEmpty(data.password)) {
-    errors.password = "Password field is required";
+    errors.password = "Password field is required.";
   }
 
   // make sure password is between 6-30... have to change it to ! to check if its not 6
   if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
-    errors.password = "Password must be at least characters";
+    errors.password = "Password must be at least 6 characters long.";
   }
   // make sure password2 field is there
   if (Validator.isEmpty(data.password2)) {
-    errors.password2 = "Confirm Password field is required";
+    errors.password2 = "Confirm Password field is required.";
   }
 
   // make sure password2 equals password one... if its not equal
