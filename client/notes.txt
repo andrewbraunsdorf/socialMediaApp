@@ -1,0 +1,24 @@
+Have to “npm i gravatar” when connected to the internet
+Get request http://http://localhost:5000/api/users/test
+After on postman, make a post request
+http://http://localhost:5000/api/users/register
+click body 
+www.form-urlencoded you fill in the form.
+Key 
+name – value
+email- email address
+password- 123456, then that should be hashed
+check database on mlab to find out if it worked
+
+11
+Once user logs in an verified, they get a token by json web token and access a protected route
+Access via passport, will validate and extract user info from it
+Post man -Post request:
+http//localhost:5000/api/users/login
+body form url encoded
+key 
+email- value want an email that doesn’t exist
+password: value a value that does not exist
+now make it one that exists with the incorrect password
+then make the password the correct one
+then we want to get the token correct
