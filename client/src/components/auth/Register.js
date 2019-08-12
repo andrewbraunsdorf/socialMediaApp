@@ -43,6 +43,11 @@ class Register extends Component {
   }
 
   render() {
+    // destruct
+    // the below are the same the curly braces just pull errors from the this.state
+    // const errors = this.state.errors
+    const { errors } = this.state;
+
     return (
       <div className="register">
         <div className="container">
@@ -56,11 +61,17 @@ class Register extends Component {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control form-control-lg" placeholder="Name"
+                    className={classnames('form-control form-control-lg', {
+                      // is-invalid will only be here if errors.name is there
+                      // errors is coming from the state, when we make a request that errors object is being filled
+                      'is-invalid': errors.name
+                    })}
+                    placeholder="Name"
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
                   />
+                  {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                 </div>
                 <div className="form-group">
                   <input
