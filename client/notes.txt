@@ -22,3 +22,24 @@ password: value a value that does not exist
 now make it one that exists with the incorrect password
 then make the password the correct one
 then we want to get the token correct
+
+12
+Postman
+Correct login information for key value
+Then we receive the bearer token
+Take this and put it in the header as authorization send to server, validate user, give user info and user can use it in express server
+13
+Open new tab
+http//localhost:5000/api/users/current
+just hit enter and it says unauthorized and we shouldn’t access this because there is no token
+taken token from a valid log in, with Bearer in front of it, then go back to current where you add key Authorization and Value of the Bearer + key
+16:04 of video 13
+
+Data structure: way of storing data in a structured manner for ease of access
+Stack, last in, first out
+Queue first in, first out
+
+19.0
+When you register you don’t have a profile you just have a user
+User collection and profile collection
+Create post route to actually create a profile
