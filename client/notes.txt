@@ -43,3 +43,34 @@ Queue first in, first out
 When you register you don’t have a profile you just have a user
 User collection and profile collection
 Create post route to actually create a profile
+
+30.0 use create react app to download react template
+Use concurrently to run react server and back end server at the same time
+Npm run dev
+
+Added proxy in the client node modules
+"proxy": "http://localhost:5000"
+
+
+"client-install": "npm install --prefix client"
+ 
+
+Added "client": "npm start --prefix client",
+
+Then added for dev
+"dev": "concurrently \"npm run server\" \"npm run client\""
+
+Under scripts in the package.json folder
+Render is a lifecycle method which will render what we put inside it…make sure to return it 
+That is for jsx
+Javascript extensions
+
+Make sure you install front end applications in react using the client server
+
+In Navbar changed a tags to Link tags and changed href to ‘to’
+Changed register.html to /register and did the same for login
+
+Install axios npm I axios
+Install classnames from bootstrap which allows you to highlight fields with isinvalid
+Npm I classnames
+If something is true add a class to it
