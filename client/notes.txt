@@ -74,3 +74,17 @@ Install axios npm I axios
 Install classnames from bootstrap which allows you to highlight fields with isinvalid
 Npm I classnames
 If something is true add a class to it
+
+Redux
+Registration had its own state… component level state, only available with in that component.
+Redux is when you need application level state
+Access errors with in state
+You need to share data with in components
+Todo list that has 1 component that list todos
+Form to add todos, add them
+Instead of passing from component to component, you get a single source of truth
+Forms you want a component level state, share between components
+Authentication, profile, posts, errors, errors reducer
+Map redux properties
+Action, map redux properties. This.
+Make axios request, get data back from the profiles.
