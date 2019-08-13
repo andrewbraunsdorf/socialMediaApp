@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // don't have to add file since it is called index.js
-import rootReducer from './reucers';
+import rootReducer from './reducers';
 
-const initialState = {}
+const initialState = {};
 
 const middleware = [thunk];
 

@@ -1,7 +1,10 @@
 //  have values of state but have to assign change events to add text
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authActions'
 
 class Register extends Component {
   constructor() {
@@ -34,12 +37,16 @@ class Register extends Component {
       password2: this.state.password2
     }
 
+    this.props.registerUser(newUser);
+
     // will remove axios, implement redux and would be implemented through redux, and set up error handling what will change is where we make the request
     // This gives a promise so we want to use .then
-    axios.post('/api/users/register', newUser)
-      .then(res => console.log(res.data))
-      // .response.data will give you the data that you send back
-      .catch(err => this.setState({ errors: err.response.data }))
+
+    // axios
+    //   .post('/api/users/register', newUser)
+    //   .then(res => console.log(res.data))
+    //   // .response.data will give you the data that you send back
+    //   .catch(err => this.setState({ errors: err.response.data }))
   }
 
   render() {
@@ -48,8 +55,13 @@ class Register extends Component {
     // const errors = this.state.errors
     const { errors } = this.state;
 
+    // use destructoring to pull out the user 
+    const { user } = this.props.auth;
+
     return (
       <div className="register">
+        {/* ternary operator... if user, return user.name else null */}
+        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -119,8 +131,19 @@ class Register extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Register;
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+// registerUser is actually a user and a prop type
+
+const mapStateToProps = (state) => ({
+  // state.auth comes from the route reducer
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { registerUser })(Register);
