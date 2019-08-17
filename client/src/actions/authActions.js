@@ -2,10 +2,11 @@ import axios from 'axios';
 import { GET_ERRORS } from "./types";
 
 //Register User
-export const registerUser = userData => dispatch => {
+export const registerUser = (userData, history) => dispatch => {
   axios
     .post('/api/users/register', userData)
-    .then(res => console.log(res.data))
+    // with react router it is easy to redirect to 
+    .then(res => history.push('/login'))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -13,3 +14,6 @@ export const registerUser = userData => dispatch => {
       })
     );
 };
+
+// inside a component but cant do this in an action
+// this.PaymentResponse.history.push('/dashboard')
