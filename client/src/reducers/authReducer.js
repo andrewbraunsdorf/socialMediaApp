@@ -1,19 +1,12 @@
-import { TEST_DISPATCH } from "../actions/types";
+import { GET_ERRORS } from '../actions/types';
 
-const initialState = {
-  isAuthenticated: false,
-  user: {}
-}
+const initialState = {};
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    // case SET_CURRENT_USER:
-    //   return
-    case TEST_DISPATCH:
-      return {
-        ...state,
-        user: action.payload
-      }
+    case GET_ERRORS:
+      // payload is going to include err.response.data from authActions
+      return action.payload;
     default:
       return state;
   }

@@ -143,7 +143,8 @@ Register.propTypes = {
 
 const mapStateToProps = (state) => ({
   // state.auth comes from the route reducer
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, { registerUser })(Register);
