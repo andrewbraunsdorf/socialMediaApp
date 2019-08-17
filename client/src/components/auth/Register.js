@@ -27,6 +27,14 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // test for certain properties, test for errors
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      // get errors from Redux state and puts errors in props with map state to props, then once we receive new properties we set it to the component state. errors will be coming from the component state
+      this.setState({ errors: nextProps.errors })
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -55,13 +63,8 @@ class Register extends Component {
     // const errors = this.state.errors
     const { errors } = this.state;
 
-    // use destructoring to pull out the user 
-    const { user } = this.props.auth;
-
     return (
       <div className="register">
-        {/* ternary operator... if user, return user.name else null */}
-        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -137,7 +140,8 @@ class Register extends Component {
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 }
 // registerUser is actually a user and a prop type
 
