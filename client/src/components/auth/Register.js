@@ -23,8 +23,10 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('dashboard');
+    }
   }
 
   // test for certain properties, test for errors
@@ -33,6 +35,10 @@ class Register extends Component {
       // get errors from Redux state and puts errors in props with map state to props, then once we receive new properties we set it to the component state. errors will be coming from the component state
       this.setState({ errors: nextProps.errors })
     }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmit(e) {
