@@ -17,6 +17,7 @@ class Profiles extends Component {
     } else {
       if (profiles.length > 0) {
         profileItems = <h1>PROFILES HERE</h1>
+
       } else {
         profileItems = <h4>No Profiles found...</h4>
       }
