@@ -18,14 +18,13 @@ class Profile extends Component {
   }
   render() {
     return (
-      <div>
-
-      </div>
+      <div />
     )
   }
 }
 
-Profile.PropTypes = {
+Profile.propTypes = {
+  getProfileByHandle: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
 }
 
@@ -33,4 +32,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, { getProfileByHandle })(Profile);
