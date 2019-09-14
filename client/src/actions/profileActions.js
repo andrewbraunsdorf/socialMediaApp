@@ -20,6 +20,25 @@ export const getCurrentProfile = () => dispatch => {
     );
 }
 
+// Get profile by handle
+export const getProfileByHandle = (handle) => dispatch => {
+  dispatch(setProfileLoading());
+  axios.get(`/api/profile/${handle}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: null
+      })
+    );
+}
+
+
 // Create Profile
 // history, have to use with router to redirect, pass in this.props.history
 // once we create profile we want to redirect
