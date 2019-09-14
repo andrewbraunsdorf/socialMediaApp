@@ -18,7 +18,12 @@ class Profile extends Component {
   }
   render() {
     return (
-      <div />
+      <div>
+        <ProfileHeader />
+        <ProfileAbout />
+        <ProfileCreds />
+        <ProfileGithub />
+      </div>
     )
   }
 }
