@@ -22,7 +22,7 @@ class Profile extends Component {
         <ProfileHeader />
         <ProfileAbout />
         <ProfileCreds />
-        <ProfileGithub />
+        <ProfileGithubs />
       </div>
     )
   }
