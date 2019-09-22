@@ -25,7 +25,7 @@ export const addPost = postData => dispatch => {
 };
 
 // GET Posts
-export const getPost = () => dispatch => {
+export const getPosts = () => dispatch => {
   dispatch(setPostLoading());
   axios
     .get('/api/posts')
@@ -45,5 +45,7 @@ export const getPost = () => dispatch => {
 
 //  Set Loading state
 export const setPostLoading = () => {
-  type: POST_LOADING
+  return {
+    type: POST_LOADING
+  }
 }

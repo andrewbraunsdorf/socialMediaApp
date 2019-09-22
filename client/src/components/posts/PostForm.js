@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-dom';
+import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
 
@@ -76,9 +76,9 @@ PostForm.propTypes = {
   errors: PropTypes.object.isRequired
 }
 
-const mapStatetoProps = state => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 })
 
-export default connect(mapStatetoProps, { addPost })(PostForm);
+export default connect(mapStateToProps, { addPost })(PostForm);
