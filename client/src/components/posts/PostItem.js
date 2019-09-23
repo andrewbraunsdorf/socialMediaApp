@@ -13,7 +13,8 @@ class PostItem extends Component {
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
-              <img className="rounded-circle d-none d-md-block" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+              <img className="rounded-circle d-none d-md-block"
+                src={post.avatar}
                 alt="" />
             </a>
             <br />
