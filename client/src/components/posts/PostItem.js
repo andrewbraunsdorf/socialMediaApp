@@ -18,7 +18,7 @@ class PostItem extends Component {
                 alt="" />
             </a>
             <br />
-            <p className="text-center">John Doe</p>
+            <p className="text-center">{post.name}</p>
           </div>
           <div className="col-md-10">
             <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint possimus corporis sunt necessitatibus! Minus
