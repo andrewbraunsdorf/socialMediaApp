@@ -31,12 +31,12 @@ class PostItem extends Component {
             <button type="button" className="btn btn-light mr-1">
               <i className="text-secondary fas fa-thumbs-down"></i>
             </button>
-            <a href="post.html" className="btn btn-info mr-1">
+            <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
               Comments
-            </a>
+            </Link>
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 }
