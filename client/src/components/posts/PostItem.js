@@ -21,9 +21,9 @@ class PostItem extends Component {
             <p className="text-center">{post.name}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint possimus corporis sunt necessitatibus! Minus
-              nesciunt soluta suscipit nobis. Amet accusamus distinctio cupiditate blanditiis dolor? Illo perferendis
-                    eveniet cum cupiditate aliquam?</p>
+            <p className="lead">
+              {post.text}
+            </p>
             <button type="button" className="btn btn-light mr-1">
               <i className="text-info fas fa-thumbs-up"></i>
               <span className="badge badge-light">4</span>
