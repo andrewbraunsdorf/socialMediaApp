@@ -46,7 +46,9 @@ class PostItem extends Component {
           <div className="col-md-10">
             <p className="lead">{post.text}</p>
             <button onClick={this.onLikeClick.bind(this, post._id)} type="button" className="btn btn-light mr-1">
-              <i className="text-info fas fa-thumbs-up" />
+              <i className={classnames('fas fa-thumbs-up', {
+                'text-info': this.findUserLike(post.likes)
+              })} />
               <span className="badge badge-light">{post.likes.length}</span>
             </button>
             <button onClick={this.onUnlikeClick.bind(this, post._id)} type="button" className="btn btn-light mr-1">
