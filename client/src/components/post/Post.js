@@ -11,7 +11,7 @@ class Post extends Component {
     this.props.getPost(this.props.match.params.id);
   }
   render() {
-    const { post, loading } = this.props;
+    const { post, loading } = this.props.post;
     let postContent;
 
     if (post === null || loading || Object.keys(post).length === 0) {
